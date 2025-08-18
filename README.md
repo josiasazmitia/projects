@@ -120,6 +120,38 @@ Once the application is running, access the API documentation at:
 - Swagger UI: http://localhost:8080/swagger-ui.html
 - OpenAPI JSON: http://localhost:8080/v3/api-docs
 
+## Useful Commands
+
+### Register a new user
+
+```bash
+curl -X POST http://localhost:8080/api/auth/register \
+-H "Content-Type: application/json" \
+-d '{
+  "email": "user@example.com",
+  "password": "password",
+  "role": "USER"
+}'
+```
+
+### Login
+
+```bash
+curl -X POST http://localhost:8080/api/auth/login \
+-H "Content-Type: application/json" \
+-d '{
+  "email": "user@example.com",
+  "password": "password"
+}'
+```
+
+### Get all users (ADMIN only)
+
+```bash
+curl -X GET http://localhost:8080/api/users \
+-H "Authorization: Bearer <your-jwt-token>"
+```
+
 ## Development
 
 ### Running Tests
